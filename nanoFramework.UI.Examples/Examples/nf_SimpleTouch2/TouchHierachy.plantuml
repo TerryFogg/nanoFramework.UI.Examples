@@ -1,0 +1,14 @@
+@startwbs
+*[#green] ApplicationMain
+**[#green] Application
+***[#red] DispatcherObject
+***[#yellow]  IEventListener
+**-[#green] MyWindow
+***-[#green] Window
+****-[#green] ContentControl
+*****-[#green] Control
+******-[#green] UIElement
+*******+[#red] DispatcherObject
+********[#green] OnPreviewButtonDownThunk
+
+@endwbs

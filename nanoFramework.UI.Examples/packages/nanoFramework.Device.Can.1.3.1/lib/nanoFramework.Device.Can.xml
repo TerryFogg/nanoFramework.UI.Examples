@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nanoFramework.Device.Can</name>
+    </assembly>
+    <members>
+        <member name="T:nanoFramework.Device.Can.CanController">
+            <summary>
+            Represents a CAN controller on the system.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanController.ControllerId">
+            <summary>
+            Controller ID for this <see cref="T:nanoFramework.Device.Can.CanController"/>.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanController.FromId(System.String,nanoFramework.Device.Can.CanSettings)">
+            <summary>
+            Opens a CAN bus with the settings provided.
+            </summary>
+            <param name="controllerId">The id of the bus.</param>
+            <param name="settings">The bus settings.</param>
+            <returns>The CAN controller requested.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanController.WriteMessage(nanoFramework.Device.Can.CanMessage)">
+            <summary>
+            Write message to CAN Bus.
+            </summary>
+            <param name="message">CAN mesage to write in CAN Bus.</param>
+        </member>
+        <member name="E:nanoFramework.Device.Can.CanController.MessageReceived">
+            <summary>
+            Indicates that a message has been received through a <see cref="T:nanoFramework.Device.Can.CanController"/> object.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanController.OnCanMessageReceivedInternal(nanoFramework.Device.Can.CanEvent)">
+            <summary>
+            Handles internal events and re-dispatches them to the publicly subscribed delegates.
+            </summary>
+            <param name="eventType">The <see cref="T:nanoFramework.Device.Can.CanEvent"/>Event type.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanController.GetMessage">
+            <summary>
+            Get next <see cref="T:nanoFramework.Device.Can.CanMessage"/> available in the _<see cref="T:nanoFramework.Device.Can.CanController"/> internal buffer.
+            If there are no more messages available null will be returned.
+            </summary>
+            <returns>
+            A <see cref="T:nanoFramework.Device.Can.CanMessage"/> or null if there are no more messages available.
+            </returns>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanControllerManager.ControllersCollection">
+            <summary>
+            <see cref="T:nanoFramework.Device.Can.CanController"/> collection.
+            </summary>
+            <remarks>
+            This collection is for internal use only.
+            </remarks>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanMessage">
+            <summary>
+            CAN message.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanMessage.Id">
+            <summary>
+            Message ID (SID or EID format, depending on <see cref="P:nanoFramework.Device.Can.CanMessage.IdentifierType"/>).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanMessage.IdentifierType">
+            <summary>
+            Message identifier type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanMessage.FrameType">
+            <summary>
+            Message frame type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanMessage.Message">
+            <summary>
+            Message data.
+            </summary>
+            <remarks>
+            Maximum lenght of data buffer is 8.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">If the message buffer exceeds the maximum allowed lenght.</exception>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanMessage.#ctor(System.UInt32,nanoFramework.Device.Can.CanMessageIdType,nanoFramework.Device.Can.CanMessageFrameType,System.Byte[])">
+            <summary>
+            Creates a CAN message.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanMessageFrameType">
+            <summary>
+            CAN message frame type.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanMessageFrameType.Data">
+            <summary>
+            Data frame.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanMessageFrameType.RemoteRequest">
+            <summary>
+            Remote request frame.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanSettings">
+            <summary>
+            Represents the settings for CAN bus.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanSettings.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of <see cref="T:nanoFramework.Device.Can.CanSettings"/>.
+            </summary>
+            <param name="baudRatePrescaler">Bus baud rate prescaler.</param>
+            <param name="phaseSegment1">Phase segment 1.</param>
+            <param name="phaseSegment2">Phase segment 2.</param>
+            <param name="syncJumpWidth">Synchronization jump width.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Can.CanSettings.#ctor(nanoFramework.Device.Can.CanSettings)">
+            <summary>
+            Initializes a copy of a <see cref="T:nanoFramework.Device.Can.CanSettings"/> object.
+            </summary>
+            <param name="value">Object to copy from.</param>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanSettings.BaudRatePrescaler">
+            <summary>
+            Gets or sets the baud rate prescaler.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanSettings.PhaseSegment1">
+            <summary>
+            Gets or sets the value for phase segment 1.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanSettings.PhaseSegment2">
+            <summary>
+            Gets or sets the value for phase segment 2.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Can.CanSettings.SyncJumpWidth">
+            <summary>
+            Gets or sets the value for the synchronization jump width.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanEvent">
+            <summary>
+            Describes the possible types of events for the CAN controller.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanEvent.MessageReceived">
+            <summary>
+            A CAN message was received.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanEvent.ErrorOccurred">
+            <summary>
+            An error has occurred.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanMessageIdType">
+            <summary>
+            CAN message identifier type.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanMessageIdType.SID">
+            <summary>
+            Standard Identifier.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Can.CanMessageIdType.EID">
+            <summary>
+            Extended Identifier.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Can.CanMessageReceivedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:nanoFramework.Device.Can.CanController.MessageReceived"/> event.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nanoGraphicsPrimitives</name>
+    </assembly>
+    <members>
+        <member name="T:nanoFramework.UI.Bitmap">
+            <summary>
+            Encapsulates a bitmap, which consists of the pixel data for a graphics image and its methods and attributes
+            This class cannot be inherited.The.NET Micro Framework provides the
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.MaxWidth">
+            <summary>
+            Specifies the maximum width of the display device, in pixels.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.MaxHeight">
+            <summary>
+            Specifies the maximum height of the display device, in pixels.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.CenterX">
+            <summary>
+            Represents the x-coordinate location of the center of the display device, in pixels.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.CenterY">
+            <summary>
+            Represents the y-coordinate location of the center of the display device, in pixels.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.OpacityOpaque">
+            These have to be kept in sync with the CLR_GFX_Bitmap::c_DrawText_ flags.
+            <summary>
+            Specifies that the current bitmap is opaque.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.OpacityTransparent">
+            <summary>
+            Specifies that the current bitmap is transparent.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.SRCCOPY">
+            <summary>
+            Copies the source rectangle directly to the destination rectangle.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.PATINVERT">
+            <summary>
+            Inverts the source rectangle.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DSTINVERT">
+            <summary>
+            Inverts the destination rectangle.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.BLACKNESS">
+            <summary>
+            Fills the destination rectangle with the color associated with index number 0 in the physical palette.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.WHITENESS">
+            <summary>
+            Fills the destination rectangle with the color associated with index number 1 in the physical palette.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DSTGRAY">
+            <summary>
+            Fills the destination rectangle with a gray color.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DSTLTGRAY">
+            <summary>
+            Fills the destination rectangle with a light gray color.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DSTDKGRAY">
+            <summary>
+            Fills the destination rectangle with a dark gray color.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.SINGLEPIXEL">
+            <summary>
+            Specifies that a circle should have only a single-pixel border and no fill pattern or color.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.RANDOM">
+            <summary>
+            Fills the destination rectangle or circle with a randomly generated pattern.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_None">
+            <summary>
+            Specifies that there are no format rules.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_WordWrap">
+            <summary>
+            Specifies whether a line of bitmap text automatically wraps words to the beginning of the next line when the line reaches its maximum width.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_TruncateAtBottom">
+            <summary>
+            Specifies that if the bitmap text is larger than the space provided, the text is truncated at the bottom.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_Ellipsis">
+            <summary>
+            Specifies that the bitmap text is trimmed to the nearest character, and an ellipsis is inserted at the end of each trimmed line.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_IgnoreHeight">
+            <summary>
+            Specifies that if the bitmap text is larger than the space provided, the text is drawn in its full size, rather than being scaled down to fit the value in the Height property.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_AlignmentLeft">
+            <summary>
+            Specifies that text is left-aligned as it flows around a bitmap.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_AlignmentCenter">
+            <summary>
+            Specifies that text is center-aligned as it flows around a bitmap.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_AlignmentRight">
+            <summary>
+            Specifies that text is right-aligned as it flows around a bitmap.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_AlignmentMask">
+            <summary>
+            Specifies that you can use a mask to get or set text alignment around a bitmap.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_TrimmingNone">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_TrimmingWordEllipsis">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_TrimmingCharacterEllipsis">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.DT_TrimmingMask">
+            <summary>
+            Not yet documented.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.UI.Bitmap.BitmapImageType">
+            <summary>
+             Note that these values have to match the c_Type* consts in CLR_GFX_BitmapDescription 
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.BitmapImageType.NanoCLRBitmap">
+            <summary>
+            A bitmap in a format specific to the nano Framework common language runtine (CLR).
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.BitmapImageType.Gif">
+            <summary>
+            A bitmap in GIF format.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.BitmapImageType.Jpeg">
+            <summary>
+            A bitmap in JPEG format.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Bitmap.BitmapImageType.Bmp">
+            <summary>
+            A bitmap in Windows BMP format.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Encapsulates a bitmap, which consists of the pixel data for a graphics image and its methods and attributes.
+            </summary>
+            <param name = "width" > The width of the bitmap.</param>
+            <param name = "height" > The height of the bitmap.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.#ctor(System.Byte[],nanoFramework.UI.Bitmap.BitmapImageType)">
+            <summary>
+            Not docummented yet.
+            </summary>
+            <param name = "imageData" > An array of pixel data for the specified image.</param>
+            <param name = "type" > The bitmap type for the specified image.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Flush">
+            <summary>
+            Flushes the current bitmap to the display device.
+            Bitmap will be written to the upper-left corner of the screen (full-screen, for full-screen bitmaps).
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Flush(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Flushes a sub-rectangle of the current bitmap to the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the sub-rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the sub-rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the sub-rectangle.</param>
+            <param name = "height" > The height of the sub-rectangle.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Flush(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Flushes a sub-rectangle of the current bitmap to the display device at a specified screen position.
+            </summary>
+            <param name = "srcX" > The x-coordinate of the sub-rectangle's upper-left corner.</param>
+            <param name = "srcY" > The y-coordinate of the sub-rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the sub-rectangle.</param>
+            <param name = "height" > The height of the sub-rectangle.</param>
+            <param name = "screenX" > The x-coordinate of the screen to write to.</param>
+            <param name = "screenY" > The y-coordinate of the screen to write to</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Clear">
+            <summary>
+            Clears the entire drawing surface.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawTextInRect(System.String@,System.Int32@,System.Int32@,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32,nanoFramework.Presentation.Media.Color,nanoFramework.UI.Font)">
+            <summary>
+            Draws text in a specified rectangle.
+            Sets the clipping region (clipping rectangle) of a bitmap with a specified coordinate pair (x, y), width, and height.
+            </summary>
+            <param name = "text" > The text to be drawn. This parameter contains the remaining text, or an empty string, if the complete text string did not fit in the specified rectangle.</param>
+            <param name = "xRelStart" > The x-coordinate, relative to the rectangle, at which text drawing is to begin.</param>
+            <param name = "yRelStart" > The y-coordinate, relative to the rectangle, at which text drawing is to begin.</param>
+            <param name = "x" > The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name = "y" > The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name = "width" > The width of the rectangle.</param>
+            <param name = "height" > The height of the rectangle.</param>
+            <param name = "dtFlags" > Flags that specify the format of the text.</param>
+            <param name = "color" > The color to be used for the text.</param>
+            <param name = "font" > The font to be used for the text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawTextInRect(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32,nanoFramework.Presentation.Media.Color,nanoFramework.UI.Font)">
+            <summary>
+            <param name = "text" > The text to be drawn. This parameter contains the remaining text, or an empty string, if the complete text string did not fit in the specified rectangle.</param>
+            <param name = "x" > The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name = "y" > The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name = "width" > The width of the rectangle.</param>
+            <param name = "height" > The height of the rectangle.</param>
+            <param name = "dtFlags" > Flags that specify the format of the text.</param>
+            <param name = "color" > The color to be used for the text.</param>
+            <param name = "font" > The font to be used for the text.</param>
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawChar(System.UInt16,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,nanoFramework.UI.Font)">
+            <summary>
+            Draws a single character to the screen.
+            </summary>
+            <param name="c"> The character to draw.</param>
+            <param name="x"> The x-coordinate of the upper-left corner to draw to.</param>
+            <param name="y"> The y-coordinate of the upper-left corner to draw to.</param>
+            <param name="color"> The color to be used for the character.</param>
+            <param name="font"> The font to be used for the character.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.SetClippingRectangle(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name = "x" > The x-coordinate of the upper-left corner of the clipping rectangle.</param>
+            <param name = "y" > The y-coordinate of the upper-left corner of the clipping rectangle.</param>
+            <param name = "width" > The width of the clipping rectangle.</param>
+            <param name = "height" > The height of the clipping rectangle.</param>
+        </member>
+        <member name="P:nanoFramework.UI.Bitmap.Width">
+            <summary>
+            Gets the width of the current bitmap.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Bitmap.Height">
+            <summary>
+            Gets the height of the current bitmap.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawEllipse(nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Draws an ellipse filled with a specified color gradient.
+            </summary>
+            <param name = "colorOutline" > The outline color.</param>
+            <param name = "thicknessOutline" > The thickness of the ellipse's outline, in pixels.</param>
+            <param name = "x" > The x-coordinate location of the center of the ellipse.</param>
+            <param name = "y" > The y-coordinate location of the center of the ellipse.</param>
+            <param name = "xRadius" > The radius of the ellipse in the x-coordinate direction.</param>
+            <param name = "yRadius" > The radius of the ellipse in the y-coordinate direction.</param>
+            <param name = "colorGradientStart" > The starting color of the color gradient.</param>
+            <param name = "xGradientStart" > The x-coordinate location of the starting point of the color gradient.</param>
+            <param name = "yGradientStart" > The y-coordinate location of the starting point of the color gradient.</param>
+            <param name = "colorGradientEnd" > The ending color of the color gradient.</param>
+            <param name = "xGradientEnd" > The x-coordinate location of the ending point of the color gradient.</param>
+            <param name = "yGradientEnd" > The y-coordinate location of the ending point of the color gradient.</param>
+            <param name = "opacity" > The opacity of the ellipse.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawEllipse(nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Draw and Ellipse
+             </summary>
+            <param name = "colorOutline" > The outline color.</param>
+            <param name = "x" > The x-coordinate location of the center of the ellipse.</param>
+            <param name = "y" > The y-coordinate location of the center of the ellipse.</param>
+            <param name = "xRadius" > The radius of the ellipse in the x-coordinate direction.</param>
+            <param name = "yRadius" > The radius of the ellipse in the y-coordinate direction.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawImage(System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a rectangular block of pixels with a specified degree of transparency.
+            </summary>
+            <param name = "xDst" > The x-coordinate location of the upper-left corner of the rectangular area on the display to which the specified pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate location of the upper-left corner of the rectangular area on the display to which the specified pixels are to be copied.</param>
+            <param name = "bitmap" > The source bitmap.</param>
+            <param name = "xSrc" > The x-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name = "ySrc" > The x-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name = "width" > The width of the rectangular block of pixels to be copied.</param>
+            <param name = "height" > The height of the rectangular block of pixels to be copied.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawImage(System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+             Draws a rectangular block of pixels with a specified degree of transparency.
+            </summary>
+            <param name = "xDst" > The x-coordinate location of the upper-left corner of the rectangular area on the display to which the specified pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate location of the upper-left corner of the rectangular area on the display to which the specified pixels are to be copied.</param>
+            <param name = "bitmap" > The source bitmap.</param>
+            <param name = "xSrc" > The x-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name = "ySrc" > The x-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name = "width" > The width of the rectangular block of pixels to be copied.</param>
+            <param name = "height" > The height of the rectangular block of pixels to be copied.</param>
+            <param name = "opacity" > The degree of opacity of the bitmap. A value of 0 (zero) makes the bitmap completely opaque (not transparent at all); a value of 255 makes the bitmap completely transparent.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.RotateImage(System.Int32,System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name = "angle" > The degree of rotation.</param>
+            <param name = "xDst" > The x-coordinate of the center? of the destination bitmap.</param>
+            <param name = "yDst" > The y-coordinate of the center? of the destination bitmap.</param>
+            <param name = "bitmap"></param>                        ?
+            <param name = "xSrc" > The x-coordinate of the center? of the source bitmap.</param>
+            <param name = "ySrc" > The y-coordinate of the center? of the source bitmap.</param>
+            <param name = "width"></param>
+            <param name = "height"></param>
+            <param name = "opacity"></param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.MakeTransparent(nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Sets a bitmap's transparent color.
+            </summary>
+            <param name = "color" > The color to be used as the bitmap's transparent color.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.StretchImage(System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Draws a rectangular block of pixels on the display device, stretching or shrinking the rectangular area as necessary.
+            </summary>
+            <param name = "xDst" > The x-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "sourceBitmap" > The source bitmap.</param>
+            <param name = "width" > The width of the rectangluar area to which the pixels are to be copied.</param>
+            <param name = "height" > The height of the rectangluar area to which the pixels are to be copied.</param>
+            <param name = "opacity" > The bitmap's degree of opacity. A value of 0 (zero) makes the bitmap completely opaque (not transparent at all); a value of 255 makes the bitmap completely transparent.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawLine(nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Draws a line on the display device.
+            </summary>
+            <param name = "color" > The color of the line.</param>
+            <param name = "thickness" > The thickness of the line, in pixels.Remark: The thickness parameter is not currently available.For now, all lines are one pixel thick.</param>
+            <param name = "x0" > The x-coordinate location of the line's starting point.</param>
+            <param name = "y0" > The y-coordinate location of the line's starting point.</param>
+            <param name = "x1" > The x-coordinate location of the line's ending point.</param>
+            <param name = "y1" > The y-coordinate location of the line's ending point.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Draw a rectangle outline on the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "thickness" > The thickness of the rectangle's outline, in pixels.</param>
+            <param name = "color" > The color of the rectangle's outline.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawRectangle(nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Draws a rectangle on the display device.
+            </summary>
+            <param name = "colorOutline" > The color of the rectangle's outline.</param>
+            <param name = "thicknessOutline" > The thickness of the rectangle's outline, in pixels.</param>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "xCornerRadius" > The x-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "yCornerRadius" > The y-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "colorGradientStart" > The starting color for a color gradient.</param>
+            <param name = "xGradientStart" > Holds the x coordinate of the starting location of the color gradient.</param>
+            <param name = "yGradientStart" > Holds the y coordinate of the starting location of the color gradient.</param>
+            <param name = "colorGradientEnd" > Specifies the ending color of the color gradient.</param>
+            <param name = "xGradientEnd" > Holds the x coordinate of the ending location of the color gradient.</param>
+            <param name = "yGradientEnd" > Holds the y coordinate of the ending location of the color gradient.</param>
+            <param name = "opacity" > Specifies the opacity of the fill color. Set to 0x00 for completely transparent. Set to 0xFF for completely opague.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Draw a rounded rectangle outline on the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "thickness" > The thickness of the rectangle's outline, in pixels.</param>
+            <param name = "xCornerRadius" > The x-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "yCornerRadius" > The y-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "color" > The color of the rectangle's outline.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.FillRectangle(System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.UInt16)">
+            <summary>
+            Draw a filled rectangle on the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "color" > The color of the rectangle's outline.</param>
+            <param name = "opacity" > Specifies the opacity of the fill color. Set to OpacityTransparent for completely transparent. Set to OpacityOpaque for completely opague.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.FillRoundRectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.UInt16)">
+            <summary>
+            Draw a filled rounded rectangle on the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "xCornerRadius" > The x-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "yCornerRadius" > The y-coordinate value of the corner radius used to produce rounded corners on the rectangle.</param>
+            <param name = "color" > The color of the rectangle's outline.</param>
+            <param name = "opacity" > Specifies the opacity of the fill color. Set to OpacityTransparent for completely transparent. Set to OpacityOpaque for completely opague.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.FillGradientRectangle(System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Draw a filled gradient rectangle on the display device.
+            </summary>
+            <param name = "x" > The x-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "y" > The y-coordinate of the rectangle's upper-left corner.</param>
+            <param name = "width" > The width of the rectangle, in pixels.</param>
+            <param name = "height" > The height of the rectangle, in pixels.</param>
+            <param name = "colorGradientStart" > The starting color for a color gradient.</param>
+            <param name = "xGradientStart" > Holds the x coordinate of the starting location of the color gradient.</param>
+            <param name = "yGradientStart" > Holds the y coordinate of the starting location of the color gradient.</param>
+            <param name = "colorGradientEnd" > Specifies the ending color of the color gradient.</param>
+            <param name = "xGradientEnd" > Holds the x coordinate of the ending location of the color gradient.</param>
+            <param name = "yGradientEnd" > Holds the y coordinate of the ending location of the color gradient.</param>
+            <param name = "opacity" > Specifies the opacity of the fill color. Set to OpacityTransparent for completely transparent. Set to OpacityOpaque for completely opague.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.DrawText(System.String,nanoFramework.UI.Font,nanoFramework.Presentation.Media.Color,System.Int32,System.Int32)">
+            <summary>
+            Draws text on the display device, using a specified font and color.
+            </summary>
+            <param name = "text" > The text to be drawn.</param>
+            <param name = "font" > The font to be used for the text.</param>
+            <param name = "color" > The color to be used for the text.</param>
+            <param name = "x" > The x-coordinate of the location where text drawing is to begin.</param>
+            <param name = "y" > The y-coordinate of the location where text drawing is to begin.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.SetPixel(System.Int32,System.Int32,nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Sets the color for a specified pixel.
+            </summary>
+            <param name = "xPos" > The x-coordinate of the pixel whose color you want to set.</param>
+            <param name = "yPos" > The y-coordinate of the pixel whose color you want to set.</param>
+            <param name = "color" > The color you want to set for the specified pixel.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.GetPixel(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the pixel color at a specified location on the display device.
+            </summary>
+            <param name = "xPos" > The x-coordinate of the pixel whose color you want to get.</param>
+            <param name = "yPos" > The y-coordinate of the pixel whose color you want to get.</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.GetBitmap">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.StretchImage(System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name = "xDst" > The x-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "widthDst" > The width of the rectangluar area to which the pixels are to be copied.</param>
+            <param name = "heightDst" > The height of the rectangluar area to which the pixels are to be copied.</param>
+            <param name = "bitmap" > The source bitmap.</param>
+            <param name="xSrc"></param>
+            <param name="ySrc"></param>
+            <param name="widthSrc"></param>
+            <param name="heightSrc"></param>
+            <param name = "opacity" > The bitmap's degree of opacity. A value of 0 (zero) makes the bitmap completely opaque (not transparent at all); a value of 255 makes the bitmap completely transparent.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.TileImage(System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name = "xDst" > The x-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "bitmap" > The source bitmap.</param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name = "opacity" > The bitmap's degree of opacity. A value of 0 (zero) makes the bitmap completely opaque (not transparent at all); a value of 255 makes the bitmap completely transparent.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Scale9Image(System.Int32,System.Int32,System.Int32,System.Int32,nanoFramework.UI.Bitmap,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name = "xDst" > The x-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name = "yDst" > The y-coordinate of the upper-left corner of the rectangular area to which the pixels are to be copied.</param>
+            <param name="widthDst"></param>
+            <param name="heightDst"></param>
+            <param name="bitmap"></param>
+            <param name="leftBorder"></param>
+            <param name="topBorder"></param>
+            <param name="rightBorder"></param>
+            <param name="bottomBorder"></param>
+            <param name = "opacity" > The bitmap's degree of opacity. A value of 0 (zero) makes the bitmap completely opaque (not transparent at all); a value of 255 makes the bitmap completely transparent.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:nanoFramework.UI.Bitmap.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:nanoFramework.UI.DisplayOrientation">
+            <summary>
+            Display orientation. No all display drivers support every orientation.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.DisplayOrientation.PORTRAIT">
+            <summary>
+            Portrait
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.DisplayOrientation.PORTRAIT180">
+            <summary>
+            Portrait 180
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.DisplayOrientation.LANDSCAPE">
+            <summary>
+            Landscape
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.DisplayOrientation.LANDSCAPE180">
+            <summary>
+            Landscape 180
+            </summary>
+        </member>
+        <member name="T:nanoFramework.UI.DisplayControl">
+            <summary>
+            Display Control.  
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.MaximumBufferSize">
+            <summary>
+            The maximum buffer size for Bitmap in bytes.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.FullScreen">
+            <summary>
+            Returns a bitmap the size of the current display. 
+            </summary>
+            <remarks>Please make sure you check if you have enough memory with IsFullScreenBufferAvailable.
+            If you don't have enough, the BitMap won't get initialized and will be null.</remarks>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.LongerSide">
+            <summary>
+            The screens number of pixels for the longer side.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.ShorterSide">
+            <summary>
+            The screens number of pixels for the shorter side.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.ScreenWidth">
+            <summary>
+            The displays number of pixel for the width based on the orientation.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.ScreenHeight">
+            <summary>
+            The displays number of pixel for the height based on the orientation.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.BitsPerPixel">
+            <summary>
+            Currently 16 bits in RBG565 format. ( There is some 1 bit code available but untested )
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.DisplayControl.Orientation">
+            <summary>
+            Return the current display orientation landscape, portrait.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.DisplayControl.ChangeOrientation(nanoFramework.UI.DisplayOrientation)">
+            <summary>
+            Change the orientation of the display.
+            </summary>
+            <remarks>
+            When the orientation is changed the display canvas is disposed and recreated with the new dimensions
+            when DisplayControl.FullScreen is next called.
+            </remarks>
+            <param name="Orientation">New Orientation</param>
+            <returns>True if the orientation was supported and changed.</returns>
+        </member>
+        <member name="M:nanoFramework.UI.DisplayControl.WritePoint(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Write a point directly on the screen.
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <param name="y">The y coordinate.</param>
+            <param name="color">The 16 bits color.</param>
+        </member>
+        <member name="M:nanoFramework.UI.DisplayControl.Clear">
+            <summary>
+            Clears the screen.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.DisplayControl.Write(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16[])">
+            <summary>
+            Directly write in the screen at coordinate x,y a width,height buffer of 16 bits colors.
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <param name="y">The y coordinate.</param>
+            <param name="width">The width of the area to display.</param>
+            <param name="height">The height of the area to display.</param>
+            <param name="colors">A 16 bits color</param>
+        </member>
+        <member name="M:nanoFramework.UI.DisplayControl.Write(System.String,System.UInt16,System.UInt16,System.UInt16,System.UInt16,nanoFramework.UI.Font,nanoFramework.Presentation.Media.Color,nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Directly write on the screen a text at coordinate x,y a width,height with a background and foreground color.
+            </summary>
+            <param name="text">The text to write.</param>
+            <param name="x">The x coordinate.</param>
+            <param name="y">The y coordinate.</param>
+            <param name="width">The width of the area to display.</param>
+            <param name="height">The height of the area to display.</param>
+            <param name="font">The font to use.</param>
+            <param name="foreground">Foreground color.</param>
+            <param name="background">Background color.</param>
+        </member>
+        <member name="T:nanoFramework.UI.Font">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:nanoFramework.UI.Font.DefaultKerning">
+            <summary>
+            Contains the default kerning for a particular font.
+            The kerning controls the amount of space between consecutive characters in a particular font.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Font.CharWidth(System.Char)">
+            <summary>
+            Gets the width of the specified character, in pixels.
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="P:nanoFramework.UI.Font.Height">
+            <summary>
+            Gets the height of the current font, in pixels.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.AverageWidth">
+            <summary>
+            Gets the average width of the characters in the current font, in pixels.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.MaxWidth">
+            <summary>
+            Gets the width of the widest character in the current font, in pixels.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.Ascent">
+            <summary>
+            Gets the ascent measurement for the current font, in pixels.
+            A font's ascent is the vertical distance between the font baseline and the top of the font area.
+            <returns>The ascent measurement for the current font, in pixels.</returns>
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.Descent">
+            <summary>
+            Gets the descent measurement for the current font, in pixels.
+            A font's descent is the vertical distance between the font baseline and the bottom of the font area.
+            <returns>The descent measurement for the current font, in pixels.</returns>
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.InternalLeading">
+            <summary>
+            Gets the internal leading measurement for the current font, in pixels.
+            <returns>The internal leading measurement for the current font, in pixels.</returns>
+            </summary>
+        </member>
+        <member name="P:nanoFramework.UI.Font.ExternalLeading">
+            <summary>
+            Gets the external leading measurement for the current font, in pixels.
+            <returns>The external leading measurement for the current font, in pixels.</returns>
+            </summary>
+        </member>
+        <member name="M:nanoFramework.UI.Font.ComputeExtent(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Computes the width, height, and kerning of a specified line of text.
+            </summary>
+            <param name = "text" > The text you want to measure.</param>
+            <param name = "width" > The width of the specified text.</param>
+            <param name = "height" > The height of the specified text.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Font.ComputeExtent(System.String,System.Int32@,System.Int32@,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name = "text" > The text you want to measure.</param>
+            <param name = "width" > The width of the specified text.</param>
+            <param name = "height" > The height of the specified text.</param>
+            <param name = "kerning" > The spacing between consecutive characters.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Font.ComputeTextInRect(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Computes the size of the rectangular area on the display device needed to render the specified text string.
+            </summary>
+            <param name = "text" > The text you want to render on the display device.</param>
+            <param name = "renderWidth" > The width, in pixels, of the rectangular area needed to render the text.</param>
+            <param name = "renderHeight" > The height, in pixels, of the rectangular area needed to render the text.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Font.ComputeTextInRect(System.String,System.Int32@,System.Int32@,System.Int32)">
+            <summary>
+            Computes the size of the rectangular area on the display device needed to render the specified text string.
+            </summary>
+            <param name = "text" > The text you want to render on the display device.</param>
+            <param name = "renderWidth" > The width, in pixels, of the rectangular area needed to render the text.</param>
+            <param name = "renderHeight" > The height, in pixels, of the rectangular area needed to render the text.</param>
+            <param name = "availableWidth" > The maximum width of text that will fit in the defined rectangular area.</param>
+        </member>
+        <member name="M:nanoFramework.UI.Font.ComputeTextInRect(System.String,System.Int32@,System.Int32@,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Computes the size of the rectangular area on the display device needed to render the specified text string.
+            </summary>
+            <param name = "text" > The text you want to render on the display device.</param>
+            <param name = "renderWidth" > The width, in pixels, of the rectangular area needed to render the text.</param>
+            <param name = "renderHeight" > The height, in pixels, of the rectangular area needed to render the text.</param>
+            <param name = "xRelStart" > The x-coordinate of the relative starting point for the text.</param>
+            <param name = "yRelStart" > The y-coordinate of the relative starting point for the text.</param>
+            <param name = "availableWidth" > The maximum width of text that will fit in the defined rectangular area.</param>
+            <param name = "availableHeight" > The maximum height of text that will fit in the defined rectangular area.</param>
+            <param name = "dtFlags" > Flags that specify various text characteristics, such as alignment.</param>
+        </member>
+        <member name="T:nanoFramework.Presentation.Media.ColorUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Presentation.Media.ColorUtility.ColorFromRGB(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Presentation.Media.ColorUtility.GetRValue(nanoFramework.Presentation.Media.Color)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Presentation.Media.ColorUtility.GetGValue(nanoFramework.Presentation.Media.Color)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Presentation.Media.ColorUtility.GetBValue(nanoFramework.Presentation.Media.Color)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Presentation.Media.ColorUtility.To16Bpp(nanoFramework.Presentation.Media.Color)">
+            <summary>
+            Converts color into a 16bit representation.
+            </summary>
+            <param name="color">A color.</param>
+            <returns>a 16 bit encoded representation.</returns>
+        </member>
+        <member name="T:nanoFramework.Presentation.Media.Color">
+            <summary>
+             Note: Colors are not RGB 24-bit but are BGR 24-bit
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.AliceBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.AntiqueWhite">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Aqua">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Aquamarine">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Azure">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Beige">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Bisque">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Black">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.BlanchedAlmond">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Blue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.BlueViolet">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Brown">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.BurlyWood">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.CadetBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Chartreuse">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Chocolate">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Coral">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.CornflowerBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Cornsilk">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Crimson">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Cyan">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkCyan">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkGoldenrod">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkKhaki">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkMagenta">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkOliveGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkOrange">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkOrchid">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkRed">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkSalmon">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkSeaGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkSlateBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkSlateGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkTurquoise">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DarkViolet">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DeepPink">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DeepSkyBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DimGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.DodgerBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Firebrick">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.FloralWhite">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.ForestGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Gainsboro">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.GhostWhite">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Gold">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Goldenrod">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Gray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Green">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.GreenYellow">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Honeydew">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.HotPink">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.IndianRed">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Indigo">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Ivory">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Khaki">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Lavender">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LavenderBlush">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LawnGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LemonChiffon">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightCoral">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightCyan">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightGoldenrodYellow">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightPink">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightSalmon">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightSeaGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightSkyBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightSlateGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightSteelBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LightYellow">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Lime">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.LimeGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Linen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Magenta">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Maroon">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumAquamarine">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumOrchid">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumPurple">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumSeaGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumSlateBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumSpringGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumTurquoise">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MediumVioletRed">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MidnightBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MintCream">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.MistyRose">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Moccasin">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.NavajoWhite">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Navy">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.OldLace">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Olive">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.OliveDrab">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Orange">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.OrangeRed">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Orchid">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PaleGoldenrod">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PaleGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PaleTurquoise">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PaleVioletRed">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PapayaWhip">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PeachPuff">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Peru">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Pink">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Plum">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.PowderBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Purple">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Red">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.RosyBrown">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.RoyalBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SaddleBrown">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Salmon">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SandyBrown">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SeaGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SeaShell">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Sienna">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Silver">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SkyBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SlateBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SlateGray">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Snow">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SpringGreen">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.SteelBlue">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Tan">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Teal">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Thistle">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Tomato">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Turquoise">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Violet">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Wheat">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.White">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.WhiteSmoke">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.Yellow">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:nanoFramework.Presentation.Media.Color.YellowGreen">
+             <summary>
+            
+             </summary>
+        </member>
+    </members>
+</doc>
